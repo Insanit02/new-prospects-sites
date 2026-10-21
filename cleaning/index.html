@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BrightNest Cleaning — Home & office cleaning (Demo)</title><meta name="description" content="Home & office cleaning. Demo site for a fictional business."><meta name="robots" content="noindex">
+<style>:root{--c:#0e7490;--g:linear-gradient(135deg,#0e7490,#22d3ee)}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1d232a;line-height:1.55}
+.demo{background:#fff3cd;color:#664d03;text-align:center;font-size:13px;padding:6px}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:#fff;position:sticky;top:0;box-shadow:0 1px 6px #0001;z-index:5}
+.logo{font-weight:800;font-size:20px;color:var(--c);display:flex;gap:8px;align-items:center}
+nav a{margin-left:18px;color:#333;text-decoration:none}@media(max-width:700px){nav{display:none}}
+.btn{display:inline-block;background:var(--c);color:#fff;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:700;border:0;font-size:16px;cursor:pointer}
+.btn.alt{background:#fff;color:var(--c);border:2px solid var(--c)}
+.hero{background:var(--g);color:#fff;padding:70px 5% 80px}.hero h1{font-size:clamp(30px,6vw,52px);margin:0 0 12px;max-width:800px}.hero p{font-size:19px;max-width:620px;opacity:.95}
+.hero .btn.alt{border-color:#fff}.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+section{padding:56px 5%}h2{font-size:30px;margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{border:1px solid #e5e7eb;border-radius:12px;padding:22px;background:#fff}.card svg{width:40px;height:40px;fill:var(--c)}
+.band{background:#f6f7f9}.trust{display:flex;gap:28px;flex-wrap:wrap;font-weight:600}
+form{display:grid;gap:12px;max-width:560px}input,textarea,select{padding:12px;border:1px solid #cbd2d9;border-radius:8px;font:inherit;width:100%}
+label{font-weight:600;font-size:14px}.note{font-size:13px;color:#667}
+footer{background:#111827;color:#cbd5e1;padding:30px 5%;font-size:14px}footer a{color:#fff}
+.mbar{display:none}@media(max-width:700px){.mbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:9}.mbar a{flex:1;text-align:center;padding:15px;color:#fff;font-weight:700;text-decoration:none;background:var(--c)}.mbar a+a{background:#111827}body{padding-bottom:52px}}</style></head><body>
+<div class="demo">Demo site: BrightNest Cleaning is a fictional business. Phone numbers and emails are placeholders.</div>
+<header><div class="logo"><a href="../index.html" style="font-size:12px;margin-right:8px">← Portfolio</a><svg width="26" height="26" viewBox="0 0 24 24" fill="#0e7490"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5z"/></svg>BrightNest Cleaning</div><nav><a href="#services">Services</a><a href="#about">About</a><a href="#quote">Free Quote</a></nav><a class="btn" href="tel:+12025550178">Call</a></header>
+<div class="hero"><h1>A spotless home, without lifting a finger.</h1><p>Recurring, deep and move-out cleaning. Book in two minutes.</p><div class="cta"><a class="btn alt" href="#quote">Get a Free Quote</a><a class="btn alt" href="tel:+12025550178">Call (202) 555-0178</a></div></div>
+<section class="band"><div class="trust"><span>✓ Background-checked team (sample)</span><span>✓ Supplies included</span><span>✓ Satisfaction re-clean policy (sample)</span></div></section>
+<section id="services"><h2>Services</h2><div class="grid"><div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><h3>Recurring Cleaning</h3><p>Weekly, bi-weekly or monthly visits.</p></div><div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><h3>Deep Cleaning</h3><p>Baseboards, appliances, detail work.</p></div><div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><h3>Move-In / Move-Out</h3><p>Empty-home cleaning for renters and sellers.</p></div><div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><h3>Small Offices</h3><p>After-hours cleaning for small workspaces.</p></div></div></section>
+<section id="about" class="band"><h2>About Us</h2><p style="max-width:700px">BrightNest is a fictional cleaning company used to demonstrate a booking-focused layout: price-transparent services, a sticky call bar on mobile, and a fast quote form.</p><p><a class="btn" href="#quote">Book an Estimate</a></p></section>
+<section id="quote"><h2>Request a Free Quote</h2>
+<!-- FORM: works with Formspree (replace YOUR_FORM_ID) or Netlify Forms (data-netlify attribute; remove action when deploying to Netlify). Not connected in this demo. -->
+<form name="quote" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="quote"><p hidden><label>Leave blank <input name="bot-field"></label></p>
+<label for="n">Name</label><input id="n" name="name" required autocomplete="name">
+<label for="p">Phone</label><input id="p" name="phone" type="tel" required autocomplete="tel">
+<label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email">
+<label for="s">Service</label><select id="s" name="service"><option>Recurring Cleaning</option><option>Deep Cleaning</option><option>Move-In / Move-Out</option><option>Small Offices</option></select>
+<label for="m">Details</label><textarea id="m" name="message" rows="4"></textarea>
+<button class="btn" type="submit">Send Request</button><p class="note">Demo form (Formspree/Netlify Forms ready, not connected). Or email <a href="mailto:book@example.com">book@example.com</a>.</p></form></section>
+<footer><strong>BrightNest Cleaning</strong> · Serving Riverton (fictional) · <a href="tel:+12025550178">(202) 555-0178</a> · <a href="mailto:book@example.com">book@example.com</a><br>Demo website built by New Prospects (newestprospects@gmail.com) as a portfolio sample. Not a real business.</footer>
+<div class="mbar"><a href="tel:+12025550178">📞 Call</a><a href="#quote">Free Quote</a></div></body></html>
