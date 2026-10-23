@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://insanit02.github.io/new-prospects-sites/sitemap.xml
