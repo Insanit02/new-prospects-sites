@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Check a PDF-to-Excel Conversion Is Correct (5 Checks) | New Prospects</title>
+<meta name="description" content="Five quick checks, with copy-paste Excel formulas, to tell whether a PDF statement or invoice converted to Excel correctly: row counts, totals, running balances, text-stored numbers and a spot check.">
+<link rel="canonical" href="https://insanit02.github.io/new-prospects-sites/guides/check-pdf-to-excel-conversion/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="icon" href="../../favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#111827">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="New Prospects"><meta property="og:type" content="article">
+<meta property="og:title" content="How to check a PDF-to-Excel conversion is correct (5 checks)">
+<meta property="og:description" content="Copy-paste Excel formulas that catch misread numbers and dropped rows after converting a bank statement or invoice PDF.">
+<meta property="og:url" content="https://insanit02.github.io/new-prospects-sites/guides/check-pdf-to-excel-conversion/">
+<meta property="og:image" content="https://insanit02.github.io/new-prospects-sites/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to check a PDF-to-Excel conversion is correct (5 checks)","datePublished":"2026-10-30","dateModified":"2026-10-30","author":{"@type":"Organization","name":"New Prospects"},"publisher":{"@type":"Organization","name":"New Prospects"},"mainEntityOfPage":"https://insanit02.github.io/new-prospects-sites/guides/check-pdf-to-excel-conversion/","image":"https://insanit02.github.io/new-prospects-sites/assets/og-image.png"}</script>
+<style>article{max-width:760px;margin:0 auto;padding:30px 5% 50px}article h1{font-size:clamp(26px,4.5vw,38px);line-height:1.2}pre,code{background:#f3f4f6;border-radius:6px}code{padding:1px 5px;font-size:.92em}pre{padding:12px 14px;overflow-x:auto;font-size:.88em;line-height:1.45}.callout{border:1px solid #e5e7eb;border-left:4px solid #2563eb;background:#f6f7f9;padding:14px 16px;border-radius:8px;margin:22px 0}.tag{display:inline-block;background:#eef2ff;color:#1e3a8a;border-radius:6px;padding:2px 8px;font-size:13px;font-weight:700}</style>
+</head><body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="top"><div class="wrap"><a class="brand" href="../../">NEW PROSPECTS</a><nav aria-label="Main"><a href="../../#services">Services</a><a href="../../#pricing">Pricing</a><a href="../../#faq">FAQ</a></nav><a class="btn" href="../../#contact">Contact</a></div></div>
+<main id="main"><article>
+<p><span class="tag">Guide</span> &nbsp; Updated October 30, 2026</p>
+<h1>How to check that a PDF-to-Excel conversion is correct (5 quick checks)</h1>
+<p>Converting a PDF to Excel is the easy part. The risky part is a number that was misread, a row that was dropped, or an amount that landed in the wrong column and nobody notices until the totals are wrong. Bank statements, supplier invoices and price lists have built-in redundancy, so you can test the result in about five minutes.</p>
+<p>These checks assume the data is in a normal table: headers in row 1, data starting in row 2, and the last data row at 100 (change <code>100</code> to your last row).</p>
+
+<h2>First: try Excel's own converter</h2>
+<p>If your PDF is a clean, text-based document (you can select the text with your mouse), Excel for Microsoft 365 on Windows can read it directly: <b>Data &gt; Get Data &gt; From File &gt; From PDF</b>. Pick the table in the Navigator, then Load. Availability depends on your Excel version, so check the Data tab. It often works well for simple tables and struggles with tables that span pages, merged cells and scans. Whatever tool you use, run the checks below.</p>
+
+<h2>Check 1: Does the row count match?</h2>
+<p>Count the transactions or line items on the PDF (many statements and price lists print an item count; invoices have a line count you can count by hand). In Excel: <code>=COUNTA(A2:A100)</code> on a column that is never blank, such as the date or SKU. A difference means dropped or merged rows.</p>
+
+<h2>Check 2: Do the totals match what is printed?</h2>
+<p>Compare the sums with the totals printed on the document:</p>
+<pre>=SUM(C2:C100)    total debits (or line amounts)
+=SUM(D2:D100)    total credits
+=E100            closing balance (last row)</pre>
+<p>If a printed total is not equal to your sum, look at the pages where the numbers contain commas, brackets or minus signs. Those are the usual places for misreads.</p>
+
+<h2>Check 3: Does the running balance chain hold? (statements)</h2>
+<p>Each printed balance should equal the previous balance minus the debit plus the credit. Put your opening balance in <code>G1</code> and use:</p>
+<pre>First row:   =G1-C2+D2-E2
+All others:  =SUMPRODUCT(--(ABS(E3:E100-(E2:E99-C3:C100+D3:D100))&gt;0.005))</pre>
+<p>Both should return <code>0</code>. The second formula counts rows where the chain breaks. A broken row means a misread amount in that row or in the one above. Blank cells count as 0; if your blanks are text such as "-" or "", convert them to true blanks first. On a small test statement we built, the correct file returned 0, and changing one balance by one dollar made the formula report exactly 1 broken row.</p>
+<p>For invoices the same idea applies: <code>quantity &times; unit price = amount</code> for each row, and the amounts should add up to the subtotal.</p>
+
+<h2>Check 4: Are the numbers really numbers?</h2>
+<p>Numbers stored as text will not add up and will quietly be left out of sums. This returns how many cells in your amount columns are text:</p>
+<pre>=COUNTA(C2:E100)-COUNT(C2:E100)</pre>
+<p>It should be <code>0</code>. If not, the usual causes are trailing spaces, a stray currency symbol, or brackets used for negatives. Text-to-columns or <code>=VALUE(TRIM(C2))</code> fixes most of them. Do the same for dates: select the date column and sort. If the dates do not sort in calendar order, some are text.</p>
+
+<h2>Check 5: Spot-check by eye</h2>
+<p>Open the PDF next to the sheet and compare the first and last row of every page, plus five random rows. Page breaks are where tables get split, repeated headers sneak in as data rows, and multi-line descriptions turn into extra rows.</p>
+
+<div class="callout"><b>What these checks cannot do.</b> A pass shows the spreadsheet agrees with itself and with the totals printed on the PDF. It does not prove the PDF is right. If two errors cancel each other out, the totals still match, which is why Check 5 is there. Scanned pages, handwriting and poor photos need a different process and a human eye on every number.</div>
+
+<h2>If you would rather hand it over</h2>
+<p>We are a new, small business (no client reviews yet, so we do not show any). We do PDF-to-Excel and Google Sheets conversion with a <b>Verification tab</b> in the file that shows these same checks passing or failing, and we list anything unclear in the source rather than guessing. The extraction is software-assisted and reviewed by a person. See the made-up sample files, clearly labelled as samples, on our <a href="../../#samples">samples section</a>.</p>
+<div class="callout"><b>Free 2-page test, by email.</b> Email <a href="mailto:newestprospects@gmail.com?subject=Free%202-page%20PDF-to-Excel%20test">newestprospects@gmail.com</a> and we will convert up to 2 pages of a text-based PDF and send it back with a Verification tab, so you can judge the layout before deciding anything. One test per business, no obligation. Please redact card numbers, ID numbers and passwords first. If your PDF is a scan, we will tell you what we can and cannot do before you send anything. Test files are deleted within 14 days after delivery, or sooner on request.</div>
+<h2>Paid orders</h2>
+<ul>
+<li>Fiverr: <a href="https://www.fiverr.com/newprospectsweb/convert-pdf-to-excel-or-google-sheets-with-clean-checked-data">PDF to Excel with totals checked</a> (from $12)</li>
+<li>PeoplePerHour: <a href="https://www.peopleperhour.com/hourlie/convert-up-to-10-pdf-pages-to-excel-with-a-totals-check/1138405">PDF to Excel offer</a> ($20 for up to 10 pages)</li>
+<li>Or email <a href="mailto:newestprospects@gmail.com?subject=PDF%20to%20Excel%20question">newestprospects@gmail.com</a> with the page count. For paid jobs, files are deleted within 14 days after delivery, or sooner on request.</li>
+</ul>
+</article></main>
+<footer><div class="wrap"><p style="margin:20px 0">&copy; 2026 New Prospects &middot; <a href="../../privacy.html">Privacy</a> &middot; <a href="../../terms.html">Terms</a> &middot; <a href="../../">Home</a></p></div></footer>
+</body></html>
