@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free PDF to Excel Converter (No Upload) | New Prospects</title>
+<meta name="description" content="Turn a text-based PDF into Excel or CSV in your browser. The file is not uploaded. Simple tables only; scans and complex layouts need a checked conversion from $20.">
+<link rel="canonical" href="https://insanit02.github.io/new-prospects-sites/free-pdf-to-excel/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#111827">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="New Prospects">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free PDF to Excel converter (no upload) | New Prospects">
+<meta property="og:description" content="A free browser tool for simple, text-based PDFs. Your file is not uploaded. Scans and complex tables need a checked conversion from $20.">
+<meta property="og:url" content="https://insanit02.github.io/new-prospects-sites/free-pdf-to-excel/">
+<meta property="og:image" content="https://insanit02.github.io/new-prospects-sites/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Free PDF to Excel converter","url":"https://insanit02.github.io/new-prospects-sites/free-pdf-to-excel/","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","browserRequirements":"Requires JavaScript. The PDF is processed locally in the browser and is not uploaded.","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Best-effort converter for text-based PDFs. Rows and columns are guessed. Scanned PDFs and complex tables are out of scope.","provider":{"@type":"Organization","name":"New Prospects","url":"https://insanit02.github.io/new-prospects-sites/"}}</script>
+<style>
+.tool h2{margin-top:28px}
+.limits{border:1px solid var(--line);border-left:4px solid var(--blue);background:#fff;padding:14px 16px;border-radius:8px;margin:18px 0}
+.limits ul{margin:8px 0 0;padding-left:18px}
+.drop{border:2px dashed #9ca3af;border-radius:12px;padding:18px;background:#fff}
+.drop.over{border-color:var(--blue);background:#eef2ff}
+.drop input{display:block;width:100%;max-width:100%;margin-top:8px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+#preview{max-height:440px;overflow:auto}
+#preview caption{caption-side:bottom;text-align:left;color:var(--mut);font-size:14px;padding:8px 2px 0;white-space:normal}
+#preview table{min-width:520px}
+.warn{color:#7c2d12;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:10px 12px;margin:12px 0}
+#warnings{margin:8px 0 0;padding-left:18px}
+@media(max-width:640px){.actions .btn{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="top"><div class="wrap"><a class="brand" href="../">NEW PROSPECTS</a><nav aria-label="Main"><a href="../#services">Services</a><a href="../#pricing">Pricing</a><a href="../#faq">FAQ</a></nav><a class="btn" href="../#contact">Contact</a></div></div>
+<main id="main">
+<header class="hero"><div class="wrap">
+<h1>Free PDF to Excel, in your browser</h1>
+<p class="lead">Turn a text-based PDF into a CSV or Excel file on this page. Your file is not uploaded. This is a best-effort split for simple tables. It does not check totals. Scanned pages and complicated layouts need the paid service.</p>
+</div></header>
+
+<section><div class="wrap">
+<div class="guarantee"><b>Your PDF never leaves this browser.</b> It is not uploaded to New Prospects or to anyone else. We do not see it. PDF.js reads the text and SheetJS writes the spreadsheet, and both of those files are part of this website. Closing the tab discards the PDF. Clear does the same while you stay on the page.</div>
+
+<h2>What this free tool can and cannot do</h2>
+<div class="limits">
+<ul>
+<li>Text you can select. If a PDF reader will not let you highlight the words, this tool cannot see them. That includes scans and photos of pages.</li>
+<li>Rows are lines of text, grouped by how high they sit on the page. Columns are gaps that line up down the page. Wrapped sentences, merged cells and tables without a clear gap often land in the wrong cell.</li>
+<li>Numbers and dates stay as text. Nothing is compared with the totals printed on the PDF.</li>
+<li>Sideways text is skipped. Some unusual fonts come out blank or garbled.</li>
+<li>One PDF at a time, up to 25 pages and 15 MB. A longer file, a scan, or a table that has to be right belongs with the <a href="../pdf-to-excel-conversion/">paid conversion</a>.</li>
+</ul>
+</div>
+
+<h2>Convert a PDF</h2>
+<div class="drop" id="drop">
+<label for="pdf-file"><b>Choose a text-based PDF</b></label>
+<input id="pdf-file" type="file" accept="application/pdf,.pdf">
+<p class="note">Or drop a PDF here. One file at a time. Nothing is sent when you choose it.</p>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+<p id="error" class="warn" role="alert" hidden></p>
+
+<div id="result" hidden>
+<h2 id="result-heading" tabindex="-1">Preview</h2>
+<p id="summary"></p>
+<ul id="warnings" hidden></ul>
+<div class="tbl" id="preview" tabindex="0" role="region" aria-label="Extracted table preview"></div>
+<div class="actions">
+<button type="button" class="btn" id="download-csv" disabled>Download CSV</button>
+<button type="button" class="btn line" id="download-xlsx" disabled>Download Excel (.xlsx)</button>
+<button type="button" class="btn line" id="clear">Clear</button>
+</div>
+<p id="xlsx-missing" class="note" hidden>Excel download did not load. CSV still works.</p>
+<p class="note">The file you download stays on your device. Cells that start with =, + or @ are prefixed with an apostrophe in the CSV so a spreadsheet treats them as text. In the Excel file every cell is stored as text, which is what you want for a guess you still need to check. Negative numbers are left as they were.</p>
+</div>
+</div></section>
+
+<section class="alt" id="need-checked"><div class="wrap">
+<h2>Need the numbers checked?</h2>
+<p class="sub">This page only guesses the grid. A paid conversion is a spreadsheet plus a Verification tab that ties the numbers back to your PDF, and a list of anything unclear instead of a guess. Fiverr from $20. PeoplePerHour from $20.</p>
+<p><a class="btn" href="../pdf-to-excel-conversion/">See the paid PDF-to-Excel service</a></p>
+<ul>
+<li><a href="https://www.fiverr.com/newprospectsweb/convert-pdf-to-excel-or-google-sheets-with-clean-checked-data">Fiverr: PDF to Excel with totals checked</a> (from $20)</li>
+<li><a href="https://www.peopleperhour.com/hourlie/convert-up-to-10-pdf-pages-to-excel-with-a-totals-check/1138405">PeoplePerHour: up to 10 PDF pages to Excel with a totals check</a> ($20)</li>
+<li>Free 2-page test, by email: <a href="mailto:newestprospects@gmail.com?subject=Free%202-page%20PDF-to-Excel%20test">newestprospects@gmail.com</a>. One test per business, no obligation. Send up to 2 pages of a text-based PDF and say which columns you need. Please redact card numbers, ID numbers and passwords first. If your PDF is a scan, we will tell you what we can and cannot do before you send anything.</li>
+</ul>
+<p>Not sure the result is right? Read <a href="../guides/check-pdf-to-excel-conversion/">how to check a conversion yourself in 5 minutes</a>.</p>
+<p><span class="tag">New business</span> New Prospects started in October 2026. There are no client reviews yet, so this page does not show any.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p style="margin:20px 0">&copy; 2026 New Prospects &middot; <a href="mailto:newestprospects@gmail.com">newestprospects@gmail.com</a> &middot; <a href="../pdf-to-excel-conversion/">PDF to Excel service</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></p></div></footer>
+<script src="../assets/vendor/sheetjs/xlsx.full.min.js"></script>
+<script type="module">
+import("./app.js").catch(function () {
+  var status = document.getElementById("status");
+  if (status) status.textContent = "The converter did not load. Reload the page. If it still fails, the paid service can convert the file by email. Nothing was uploaded.";
+});
+</script>
+<noscript><div class="wrap"><p>This converter needs JavaScript. It would run in your browser; nothing is uploaded. You can email a file for the paid service instead.</p></div></noscript>
+</body>
+</html>

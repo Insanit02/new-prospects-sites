@@ -1,0 +1,17 @@
+Libraries used by the free PDF-to-Excel page. They are stored with the site
+so the page does not load them from a third party. The PDF a visitor chooses
+is never uploaded; these files only read and write it in the browser.
+
+pdf.js 4.10.38 legacy build (Mozilla)
+https://github.com/mozilla/pdf.js
+Apache-2.0, see pdfjs/LICENSE
+pdfjs/pdf.min.mjs
+  sha256 44ec6f011027ee77791386b66c14876a5fc29e20bf0433c07c6726fff7212b72
+pdfjs/pdf.worker.min.mjs
+  sha256 bd88805178a26c729db8c0107a5b630cb900ec070f4d8c7529a3e45530afd41d
+
+SheetJS Community Edition 0.20.3
+https://sheetjs.com/
+Apache-2.0, see sheetjs/LICENSE
+sheetjs/xlsx.full.min.js
+  sha256 cc015130aa8521e7f088f88898eba949ccdcbfb38df0bd129b44b7273c3a6f41
