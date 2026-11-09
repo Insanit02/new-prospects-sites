@@ -13,19 +13,20 @@
 <meta property="og:image" content="https://insanit02.github.io/new-prospects-sites/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../assets/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to check a PDF-to-Excel conversion is correct (5 checks)","datePublished":"2026-10-30","dateModified":"2026-10-30","author":{"@type":"Organization","name":"New Prospects"},"publisher":{"@type":"Organization","name":"New Prospects"},"mainEntityOfPage":"https://insanit02.github.io/new-prospects-sites/guides/check-pdf-to-excel-conversion/","image":"https://insanit02.github.io/new-prospects-sites/assets/og-image.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to check a PDF-to-Excel conversion is correct (5 checks)","datePublished":"2026-10-30","dateModified":"2026-11-09","author":{"@type":"Organization","name":"New Prospects"},"publisher":{"@type":"Organization","name":"New Prospects"},"mainEntityOfPage":"https://insanit02.github.io/new-prospects-sites/guides/check-pdf-to-excel-conversion/","image":"https://insanit02.github.io/new-prospects-sites/assets/og-image.png"}</script>
 <style>article{max-width:760px;margin:0 auto;padding:30px 5% 50px}article h1{font-size:clamp(26px,4.5vw,38px);line-height:1.2}pre,code{background:#f3f4f6;border-radius:6px}code{padding:1px 5px;font-size:.92em}pre{padding:12px 14px;overflow-x:auto;font-size:.88em;line-height:1.45}.callout{border:1px solid #e5e7eb;border-left:4px solid #2563eb;background:#f6f7f9;padding:14px 16px;border-radius:8px;margin:22px 0}.tag{display:inline-block;background:#eef2ff;color:#1e3a8a;border-radius:6px;padding:2px 8px;font-size:13px;font-weight:700}</style>
 </head><body>
 <a class="skip" href="#main">Skip to main content</a>
 <div class="top"><div class="wrap"><a class="brand" href="../../">NEW PROSPECTS</a><nav aria-label="Main"><a href="../../#services">Services</a><a href="../../#pricing">Pricing</a><a href="../../#faq">FAQ</a></nav><a class="btn" href="../../#contact">Contact</a></div></div>
 <main id="main"><article>
-<p><span class="tag">Guide</span> &nbsp; Updated October 30, 2026</p>
+<p><span class="tag">Guide</span> &nbsp; Updated November 9, 2026</p>
 <h1>How to check that a PDF-to-Excel conversion is correct (5 quick checks)</h1>
 <p>Converting a PDF to Excel is the easy part. The risky part is a number that was misread, a row that was dropped, or an amount that landed in the wrong column and nobody notices until the totals are wrong. Bank statements, supplier invoices and price lists have built-in redundancy, so you can test the result in about five minutes.</p>
 <p>These checks assume the data is in a normal table: headers in row 1, data starting in row 2, and the last data row at 100 (change <code>100</code> to your last row).</p>
 
 <h2>First: try Excel's own converter</h2>
 <p>If your PDF is a clean, text-based document (you can select the text with your mouse), Excel for Microsoft 365 on Windows can read it directly: <b>Data &gt; Get Data &gt; From File &gt; From PDF</b>. Pick the table in the Navigator, then Load. Availability depends on your Excel version, so check the Data tab. It often works well for simple tables and struggles with tables that span pages, merged cells and scans. Whatever tool you use, run the checks below.</p>
+<p>If that menu is not in your Excel, or you are on a phone, use the <a href="../../free-pdf-to-excel/">free browser converter</a>. Your PDF stays on your device and is not uploaded. It is a best-effort table for text you can select, not a checked file. Scanned and photographed pages need a person.</p>
 
 <h2>Check 1: Does the row count match?</h2>
 <p>Count the transactions or line items on the PDF (many statements and price lists print an item count; invoices have a line count you can count by hand). In Excel: <code>=COUNTA(A2:A100)</code> on a column that is never blank, such as the date or SKU. A difference means dropped or merged rows.</p>
