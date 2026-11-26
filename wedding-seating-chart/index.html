@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wedding Seating Chart (in your browser) | New Prospects</title>
+<meta name="description" content="Seat wedding guests in your browser. Set who must sit together, who must not, and how many seats each table has. Drag to adjust. Free up to 40 guests. Pro is $5 per event.">
+<link rel="canonical" href="https://insanit02.github.io/new-prospects-sites/wedding-seating-chart/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#111827">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="New Prospects">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wedding seating chart (no upload) | New Prospects">
+<meta property="og:description" content="A constraint-aware seating plan that stays in your browser. Free up to 40 guests. Pro is $5 per event for unlimited guests, print or PDF, and CSV.">
+<meta property="og:url" content="https://insanit02.github.io/new-prospects-sites/wedding-seating-chart/">
+<meta property="og:image" content="https://insanit02.github.io/new-prospects-sites/assets/og-image.png">
+<meta property="og:image:alt" content="New Prospects: websites and spreadsheet help for small businesses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wedding seating chart (no upload) | New Prospects">
+<meta name="twitter:description" content="Seat guests with together and apart rules. Names stay in the browser. Pro is $5 per event.">
+<meta name="twitter:image" content="https://insanit02.github.io/new-prospects-sites/assets/og-image.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/tools.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Wedding Seating Chart","applicationCategory":"LifestyleApplication","operatingSystem":"Web","url":"https://insanit02.github.io/new-prospects-sites/wedding-seating-chart/","isAccessibleForFree":true,"browserRequirements":"Requires JavaScript. Guest names are processed locally and are not uploaded.","description":"Assign wedding guests to tables with must-sit-together and keep-apart rules, then drag to adjust. Printable table cards are part of Pro.","offers":[{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free: up to 40 guests and on-screen seating."},{"@type":"Offer","price":"5","priceCurrency":"USD","description":"Pro: $5 per event, one time, for unlimited guests, print or PDF, and CSV export."}],"provider":{"@type":"Organization","name":"New Prospects","url":"https://insanit02.github.io/new-prospects-sites/","email":"newestprospects@gmail.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are guest names uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The list stays in this tab. Refreshing the page clears it. It is not sent to New Prospects."}},{"@type":"Question","name":"What is free and what is Pro?","acceptedAnswer":{"@type":"Answer","text":"Free seats up to 40 guests and lets you drag people between tables. Pro is $5 per event, one time: unlimited guests, print or save as PDF, and CSV export."}},{"@type":"Question","name":"What does one event mean?","acceptedAnswer":{"@type":"Answer","text":"One Gumroad purchase is for one event. This page has no server, so it cannot mark a key as used. When the event is over, choose Finish this event to clear Pro on this device. Entering a valid key again will unlock another event. That is an honor system. If you need more than one event, set the quantity at checkout."}},{"@type":"Question","name":"What does must sit together mean?","acceptedAnswer":{"@type":"Answer","text":"The same table, not a specific chair. A group larger than the seats at one table cannot be placed. Two people cannot be both together and apart."}},{"@type":"Question","name":"What if the rules cannot all be met?","acceptedAnswer":{"@type":"Answer","text":"The page seats as many people as it can and lists anyone left out, plus any rule a later drag breaks. You can move people anyway."}},{"@type":"Question","name":"How do I print table cards?","acceptedAnswer":{"@type":"Answer","text":"Pro opens the browser print dialog. Choose Save as PDF there if you want a file. Each table is one block."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="top"><div class="wrap"><a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#111827"/><text x="32" y="43" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="30" fill="#fff">NP</text></svg>NEW PROSPECTS</a><nav aria-label="Main"><a href="../tools/">Tools</a><a href="../#services">Services</a><a href="../#pricing">Pricing</a><a href="../#contact">Contact</a></nav><a class="btn" href="../#contact">Contact</a></div></div>
+<main id="main">
+<header class="hero"><div class="wrap">
+<h1>Wedding seating chart, in your browser</h1>
+<p class="lead">Paste the guest list, mark who must share a table and who must not, and set the table count. A constraint-aware search assigns seats. Drag anyone to fix it. Names are not uploaded.</p>
+<ul class="trust"><li>Free up to 40 guests</li><li>Pro is $5 per event</li><li>Printable table cards with Pro</li></ul>
+</div></header>
+
+<section class="no-print"><div class="wrap tool">
+<div class="guarantee"><b>Guest names stay in this tab.</b> They are not uploaded to New Prospects. Refreshing the page clears them. A license check goes to Gumroad with the key only, not with the guest list.</div>
+
+<h2>How to use it</h2>
+<ol class="steps">
+<li><b>Paste guests</b>One name per line. A repeated name is kept once.</li>
+<li><b>Add rules</b>Must sit together: one group per line, names separated by commas. Must not sit together: one pair per line, names separated by a vertical bar.</li>
+<li><b>Assign, then adjust</b>Set how many tables and how many seats each has. Drag a name, or use Move on a phone. Assign again replaces those edits.</li>
+</ol>
+
+<div id="unlock"></div>
+
+<h2>Guests and rules</h2>
+<div class="field"><label for="guests">Guest list</label><textarea id="guests" placeholder="Alex Chen&#10;Jordan Lee"></textarea></div>
+<div class="row-2">
+<div class="field"><label for="together">Must sit together</label><textarea id="together" placeholder="Alex Chen, Jordan Lee"></textarea></div>
+<div class="field"><label for="apart">Must not sit together</label><textarea id="apart" placeholder="Alex Chen | Sam Patel"></textarea></div>
+</div>
+<div class="row-2">
+<div class="field"><label for="table-count">Number of tables</label><input id="table-count" type="number" min="1" max="150" value="4"></div>
+<div class="field"><label for="seats-per-table">Seats per table</label><input id="seats-per-table" type="number" min="1" max="40" value="8"></div>
+</div>
+<div class="actions">
+<button type="button" class="btn" id="assign">Assign seats</button>
+<button type="button" class="btn line" id="reshuffle">Try another arrangement</button>
+<button type="button" class="btn line" id="sample">Load a sample list</button>
+<button type="button" class="btn line" id="clear">Clear</button>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+<p id="error" class="warn" role="alert" hidden></p>
+</div></section>
+
+<section id="result" hidden><div class="wrap tool">
+<h2 id="result-heading" tabindex="-1">Tables</h2>
+<div id="chart-mount"></div>
+</div></section>
+
+<section class="alt no-print" id="faq"><div class="wrap">
+<h2>Frequently asked questions</h2>
+<details><summary>Are guest names uploaded?</summary><p>No. The list stays in this tab. Refreshing the page clears it. It is not sent to New Prospects.</p></details>
+<details><summary>What is free and what is Pro?</summary><p>Free seats up to 40 guests and lets you drag people between tables. Pro is $5 per event, one time: unlimited guests, print or save as PDF, and CSV export.</p></details>
+<details><summary>What does one event mean?</summary><p>One Gumroad purchase is for one event. This page has no server, so it cannot mark a key as used. When the event is over, choose Finish this event to clear Pro on this device. Entering a valid key again will unlock another event. That is an honor system. If you need more than one event, set the quantity at checkout.</p></details>
+<details><summary>What does must sit together mean?</summary><p>The same table, not a specific chair. A group larger than the seats at one table cannot be placed. Two people cannot be both together and apart.</p></details>
+<details><summary>What if the rules cannot all be met?</summary><p>The page seats as many people as it can and lists anyone left out, plus any rule a later drag breaks. You can move people anyway.</p></details>
+<details><summary>How do I print table cards?</summary><p>Pro opens the browser print dialog. Choose Save as PDF there if you want a file. Each table is one block.</p></details>
+</div></section>
+
+<section class="no-print" id="more-from"><div class="wrap">
+<h2>More from New Prospects</h2>
+<p class="sub">Other downloads from the same shop. They are separate from this tool.</p>
+<div class="grid">
+<div class="card"><h3>1099 vendor totals template</h3><div class="price">$12</div><p>A spreadsheet template for 1099 vendor totals.</p><a class="btn" href="https://prospectify0.gumroad.com/l/1099-vendor-totals" target="_blank" rel="noopener noreferrer">See it on Gumroad</a></div>
+<div class="card"><h3>Small-town brand expansion dataset</h3><div class="price">$19</div><p>A dataset for small-town brand expansion.</p><a class="btn" href="https://prospectify0.gumroad.com/l/small-town-brand-expansion" target="_blank" rel="noopener noreferrer">See it on Gumroad</a></div>
+</div>
+</div></section>
+
+<section class="alt no-print"><div class="wrap">
+<h2>Other browser tools</h2>
+<ul>
+<li><a href="../bank-statement-budget/">Bank statement budget</a></li>
+<li><a href="../scam-message-checker/">Scam message checker</a></li>
+<li><a href="../free-pdf-to-excel/">Free PDF to Excel</a></li>
+<li><a href="../tools/">All tools</a></li>
+</ul>
+</div></section>
+</main>
+<footer><div class="wrap"><p style="margin:20px 0">&copy; 2026 New Prospects &middot; <a href="mailto:newestprospects@gmail.com">newestprospects@gmail.com</a> &middot; <a href="../tools/">All tools</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></p></div></footer>
+<script type="module">
+import("./app.js").catch(function () {
+  var status = document.getElementById("status");
+  if (status) status.textContent = "This seating chart did not load. Reload the page. Nothing was uploaded.";
+});
+</script>
+<noscript><div class="wrap"><p>This seating chart needs JavaScript. It would run in your browser. Names are not uploaded.</p></div></noscript>
+</body>
+</html>

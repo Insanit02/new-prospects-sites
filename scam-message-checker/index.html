@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scam Message Checker (in your browser) | New Prospects</title>
+<meta name="description" content="Paste a text, email, or marketplace message. A free browser check flags urgency, gift cards, crypto, wires, off-app chats, fake orders, lookalike links, and job scams. An aid, not a guarantee.">
+<link rel="canonical" href="https://insanit02.github.io/new-prospects-sites/scam-message-checker/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#111827">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="New Prospects">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scam message checker (no upload) | New Prospects">
+<meta property="og:description" content="A free rule check for texts, emails, and marketplace messages. It runs in your browser. It is an aid, not a guarantee.">
+<meta property="og:url" content="https://insanit02.github.io/new-prospects-sites/scam-message-checker/">
+<meta property="og:image" content="https://insanit02.github.io/new-prospects-sites/assets/og-image.png">
+<meta property="og:image:alt" content="New Prospects: websites and spreadsheet help for small businesses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scam message checker (no upload) | New Prospects">
+<meta name="twitter:description" content="Paste a message. Common scam patterns are flagged on your device. An aid, not a guarantee.">
+<meta name="twitter:image" content="https://insanit02.github.io/new-prospects-sites/assets/og-image.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/tools.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Scam Message Checker","applicationCategory":"SecurityApplication","operatingSystem":"Web","url":"https://insanit02.github.io/new-prospects-sites/scam-message-checker/","isAccessibleForFree":true,"browserRequirements":"Requires JavaScript. The message is checked locally and is not uploaded.","description":"Flags common scam patterns in a pasted text, email, or marketplace message and explains what to do next. An aid, not a guarantee.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"New Prospects","url":"https://insanit02.github.io/new-prospects-sites/","email":"newestprospects@gmail.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this a guarantee?","acceptedAnswer":{"@type":"Answer","text":"No. It is an aid. A low score does not mean a message is safe, and a high score does not prove a crime. It looks for common patterns. It does not contact a bank, the sender, or a scam database."}},{"@type":"Question","name":"Is the message uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The text stays in this browser. Closing the tab discards it."}},{"@type":"Question","name":"What does the score mean?","acceptedAnswer":{"@type":"Answer","text":"Each matching pattern adds points, up to 100. Zero is no common red flags. Under 40 is some red flags. 40 or more is a high risk pattern. The points are a rule total, not a probability."}},{"@type":"Question","name":"What should I do if it looks like a scam?","acceptedAnswer":{"@type":"Answer","text":"Do not send money, codes, or passwords, and do not open links from the message. Look up the company yourself. You can report it at reportfraud.ftc.gov or ic3.gov."}},{"@type":"Question","name":"Will it catch every scam?","acceptedAnswer":{"@type":"Answer","text":"No. New wording gets through. Use it as a second look, not as permission to trust a message."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="top"><div class="wrap"><a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#111827"/><text x="32" y="43" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="30" fill="#fff">NP</text></svg>NEW PROSPECTS</a><nav aria-label="Main"><a href="../tools/">Tools</a><a href="../#services">Services</a><a href="../#pricing">Pricing</a><a href="../#contact">Contact</a></nav><a class="btn" href="../#contact">Contact</a></div></div>
+<main id="main">
+<header class="hero"><div class="wrap">
+<h1>Scam message checker</h1>
+<p class="lead">Paste a text, email, or marketplace DM. This free check flags common patterns and explains a next step. It is an aid, not a guarantee, and the message is not uploaded.</p>
+<ul class="trust"><li>Free</li><li>Runs in this browser</li><li>Not a verdict</li></ul>
+</div></header>
+
+<section><div class="wrap tool">
+<div class="warn"><b>This is an aid, not a guarantee.</b> A low score does not mean a message is safe, and a high score does not prove a crime. The check looks for common wording on this device. It does not contact your bank, the sender, or any scam database. Nothing you paste is uploaded.</div>
+
+<h2>How to use it</h2>
+<ol class="steps">
+<li><b>Paste the message</b>Include links if you want those checked. Do not add passwords or codes of your own.</li>
+<li><b>Read the flags</b>Each one names the pattern, quotes the bit that matched, and says why it matters.</li>
+<li><b>Decide what to do</b>The list under the score is general safety advice. If money or an account is involved, contact the company through a number or site you look up yourself.</li>
+</ol>
+
+<h2>Check a message</h2>
+<div class="field"><label for="message">Message</label><textarea id="message" placeholder="Paste the text, email, or marketplace message here."></textarea></div>
+<div class="actions">
+<button type="button" class="btn" id="check">Check message</button>
+<button type="button" class="btn line" id="sample">Check an example</button>
+<button type="button" class="btn line" id="clear">Clear</button>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+</div></section>
+
+<section id="result" hidden><div class="wrap tool">
+<h2 id="result-heading" tabindex="-1">Result</h2>
+<div id="result-mount"></div>
+</div></section>
+
+<section class="alt" id="faq"><div class="wrap">
+<h2>Frequently asked questions</h2>
+<details><summary>Is this a guarantee?</summary><p>No. It is an aid. A low score does not mean a message is safe, and a high score does not prove a crime. It looks for common patterns. It does not contact a bank, the sender, or a scam database.</p></details>
+<details><summary>Is the message uploaded?</summary><p>No. The text stays in this browser. Closing the tab discards it.</p></details>
+<details><summary>What does the score mean?</summary><p>Each matching pattern adds points, up to 100. Zero is no common red flags. Under 40 is some red flags. 40 or more is a high risk pattern. The points are a rule total, not a probability.</p></details>
+<details><summary>What should I do if it looks like a scam?</summary><p>Do not send money, codes, or passwords, and do not open links from the message. Look up the company yourself. You can report it at <a href="https://reportfraud.ftc.gov/">reportfraud.ftc.gov</a> or <a href="https://www.ic3.gov/">ic3.gov</a>.</p></details>
+<details><summary>Will it catch every scam?</summary><p>No. New wording gets through. Use it as a second look, not as permission to trust a message.</p></details>
+</div></section>
+
+<section id="more-from"><div class="wrap">
+<h2>More from New Prospects</h2>
+<p class="sub">Other downloads from the same shop. They are separate from this checker.</p>
+<div class="grid">
+<div class="card"><h3>1099 vendor totals template</h3><div class="price">$12</div><p>A spreadsheet template for 1099 vendor totals.</p><a class="btn" href="https://prospectify0.gumroad.com/l/1099-vendor-totals" target="_blank" rel="noopener noreferrer">See it on Gumroad</a></div>
+<div class="card"><h3>Small-town brand expansion dataset</h3><div class="price">$19</div><p>A dataset for small-town brand expansion.</p><a class="btn" href="https://prospectify0.gumroad.com/l/small-town-brand-expansion" target="_blank" rel="noopener noreferrer">See it on Gumroad</a></div>
+</div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<h2>Other browser tools</h2>
+<p class="sub">These also run on your device. A file or a guest list is not uploaded.</p>
+<div class="grid">
+<div class="card"><h3>Bank statement budget</h3><p>Categorize a CSV or text PDF, with a monthly summary and repeating charges.</p><p><b>Free</b> for 50 rows. <b>Pro $9</b> once.</p><a class="btn line" href="../bank-statement-budget/">Open the budget tool</a></div>
+<div class="card"><h3>Wedding seating chart</h3><p>Seat guests with together and apart rules, then drag to adjust.</p><p><b>Free</b> up to 40 guests. <b>Pro $5</b> per event.</p><a class="btn line" href="../wedding-seating-chart/">Open the seating chart</a></div>
+<div class="card"><h3>PDF to Excel</h3><p>Turn a text-based PDF into CSV or Excel in the browser.</p><p><b>Free.</b></p><a class="btn line" href="../free-pdf-to-excel/">Open the converter</a></div>
+</div>
+<p><a href="../tools/">All tools</a></p>
+</div></section>
+</main>
+<footer><div class="wrap"><p style="margin:20px 0">&copy; 2026 New Prospects &middot; <a href="mailto:newestprospects@gmail.com">newestprospects@gmail.com</a> &middot; <a href="../tools/">All tools</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></p></div></footer>
+<script type="module">
+import("./app.js").catch(function () {
+  var status = document.getElementById("status");
+  if (status) status.textContent = "This checker did not load. Reload the page. Nothing was uploaded.";
+});
+</script>
+<noscript><div class="wrap"><p>This checker needs JavaScript. It would run in your browser. The message is not uploaded.</p></div></noscript>
+</body>
+</html>
