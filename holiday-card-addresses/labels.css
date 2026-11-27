@@ -1,0 +1,105 @@
+/* Avery geometry is in inches so a US Letter sheet lines up at 100% scale.
+   5160 / 8160: 3 columns x 10 rows. Label 2.625in x 1in.
+   Side margin 0.1875in, top margin 0.5in, column gap 0.125in.
+   0.1875*2 + 2.625*3 + 0.125*2 = 8.5. 0.5*2 + 1*10 = 11.
+   5163: 2 columns x 5 rows. Label 4in x 2in.
+   Side margin 0.15625in, top margin 0.5in, column gap 0.1875in.
+   0.15625*2 + 4*2 + 0.1875 = 8.5. 0.5*2 + 2*5 = 11. */
+
+@page { size: letter; margin: 0; }
+
+.sheet {
+  width: 8.5in;
+  height: 11in;
+  box-sizing: border-box;
+  background: #fff;
+  overflow: hidden;
+  display: grid;
+  align-content: start;
+  justify-content: start;
+}
+.sheet-5160 {
+  padding: 0.5in 0.1875in;
+  grid-template-columns: 2.625in 2.625in 2.625in;
+  grid-template-rows: repeat(10, 1in);
+  column-gap: 0.125in;
+  row-gap: 0;
+}
+.sheet-5163 {
+  padding: 0.5in 0.15625in;
+  grid-template-columns: 4in 4in;
+  grid-template-rows: repeat(5, 2in);
+  column-gap: 0.1875in;
+  row-gap: 0;
+}
+.label {
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 0;
+  min-width: 0;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sheet-5160 .label { height: 1in; max-height: 1in; padding: 0.07in 0.12in; font-size: 10pt; line-height: 1.15; }
+.sheet-5163 .label { height: 2in; max-height: 2in; padding: 0.16in 0.2in; font-size: 13pt; line-height: 1.25; }
+.label-inner div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.preview-clip {
+  width: min(100%, calc(8.5in * 0.62));
+  height: calc(11in * 0.62);
+  overflow: hidden;
+  margin: 8px 0 16px;
+  background: #e5e7eb;
+}
+.preview-clip .sheet {
+  transform: scale(0.62);
+  transform-origin: top left;
+  outline: 1px solid #111827;
+}
+.preview-clip .label { outline: 1px dashed #94a3b8; outline-offset: -1px; }
+
+.addr-wrap td { white-space: normal; vertical-align: top; }
+.addr-wrap input[type="text"] {
+  width: 100%;
+  min-width: 7.5rem;
+  padding: 6px 8px;
+  border: 1px solid #9ca3af;
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+}
+.addr-wrap .flags { min-width: 9rem; color: #7c2d12; font-size: 13px; }
+.household {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--blue);
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 10px 0;
+}
+.household h3 { margin: 0 0 6px; font-size: 18px; }
+#print-root { display: none; }
+
+@media (max-width: 700px) {
+  .preview-clip {
+    width: min(100%, calc(8.5in * 0.4));
+    height: calc(11in * 0.4);
+  }
+  .preview-clip .sheet { transform: scale(0.4); }
+}
+
+@media print {
+  html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; }
+  .sheet {
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .sheet:last-child { break-after: auto; page-break-after: auto; }
+  .label { outline: none !important; }
+  body.labels-print .top,
+  body.labels-print footer,
+  body.labels-print main { display: none !important; }
+  body.labels-print #print-root { display: block !important; }
+}

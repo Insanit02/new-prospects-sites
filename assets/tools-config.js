@@ -49,6 +49,17 @@ export const TOOLS = {
     freeSummary: "Up to 40 guests, on-screen seating, and drag to adjust.",
     proSummary: "Unlimited guests for one event, print or save as PDF, and CSV export.",
   },
+  "holiday-card-addresses": {
+    id: "holiday-card-addresses",
+    name: "Holiday Card Address Labels",
+    priceUsd: 5,
+    priceLabel: "$5 one-time",
+    productId: "Ss5btifrQmWB9vONScShFA==",
+    checkoutUrl: "https://prospectify0.gumroad.com/l/holiday-address-labels-pro",
+    perEvent: false,
+    freeSummary: "Clean, de-duplicate and preview up to 25 addresses.",
+    proSummary: "Unlimited addresses, printable Avery 5160/8160 and 5163 label sheets, return-address labels, and CSV export for mail merge.",
+  },
 };
 
 export function getTool(id) {
