@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { TOOLS } from "./tools-config.js";
+import { TOOLS, isPlaceholder } from "./tools-config.js";
 import {
   clearUnlock,
   interpretLicenseCheck,
@@ -48,6 +48,11 @@ assert.equal(TOOLS["wedding-seating-chart"].productId, "e_jffjVOzqBYN7LBbZN0OA==
 assert.equal(TOOLS["wedding-seating-chart"].checkoutUrl, "https://prospectify0.gumroad.com/l/wedding-seating-chart-pro");
 assert.equal(TOOLS["wedding-seating-chart"].perEvent, true);
 assert.equal(TOOLS["wedding-seating-chart"].priceUsd, 5);
+assert.equal(TOOLS["holiday-card-addresses"].productId, "Ss5btifrQmWB9vONScShFA==");
+assert.equal(TOOLS["holiday-card-addresses"].checkoutUrl, "https://prospectify0.gumroad.com/l/holiday-address-labels-pro");
+assert.equal(TOOLS["holiday-card-addresses"].priceUsd, 5);
+assert.equal(TOOLS["holiday-card-addresses"].perEvent, false);
+assert.equal(isPlaceholder(TOOLS["holiday-card-addresses"].productId), false);
 
 const params = new URLSearchParams({
   product_id: TOOLS[BANK].productId,
@@ -150,3 +155,18 @@ stale.setItem(storageKey(BANK), JSON.stringify({
   productId: "different-product",
 }));
 assert.equal(readUnlock(BANK, stale), null);
+
+const holidayStore = memory();
+let holidayBody = "";
+const holidaySaved = await verifyLicense("holiday-card-addresses", KEY, {
+  store: holidayStore,
+  fetch: async (_url, options) => {
+    holidayBody = options.body.toString();
+    return { status: 200, json: async () => purchase() };
+  },
+});
+assert.equal(holidaySaved.unlock, true);
+assert.equal(holidaySaved.verifiedWithGumroad, true);
+assert.equal(holidayBody.includes("product_id=Ss5btifrQmWB9vONScShFA%3D%3D"), true);
+assert.equal(holidayBody.includes("increment_uses_count=false"), true);
+assert.equal(readUnlock("holiday-card-addresses", holidayStore).productId, TOOLS["holiday-card-addresses"].productId);

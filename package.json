@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node free-pdf-to-excel/table.test.mjs && node assets/unlock.test.mjs && node bank-statement-budget/budget.test.mjs && node wedding-seating-chart/seating.test.mjs && node scam-message-checker/scam.test.mjs"
+    "test": "node free-pdf-to-excel/table.test.mjs && node assets/unlock.test.mjs && node bank-statement-budget/budget.test.mjs && node wedding-seating-chart/seating.test.mjs && node scam-message-checker/scam.test.mjs && node holiday-card-addresses/addresses.test.mjs"
   }
 }
